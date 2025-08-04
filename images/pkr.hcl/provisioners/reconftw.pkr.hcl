@@ -200,7 +200,8 @@
       "/bin/su -l op -c 'docker image build - < /home/op/lists/axiom-dockerfiles/trufflehog/Dockerfile -t axiom/trufflehog'",
 
       "echo 'Installing wafw00f'",
-      "cd /tmp && git clone https://github.com/EnableSecurity/wafw00f && cd wafw00f && sudo python3 setup.py install",
+      "sudo python3 -m pip install --upgrade pip setuptools wheel",
+      "sudo python3 -m pip install git+https://github.com/EnableSecurity/wafw00f.git"
 
       "echo 'Removing unneeded Docker images'",
       "/bin/su -l op -c 'docker image prune -f'",

@@ -309,7 +309,8 @@
         "wget -q -O /tmp/unimap https://github.com/Edu4rdSHL/unimap/releases/download/0.5.1/unimap-linux && mv /tmp/unimap /usr/bin/unimap && chmod +x /usr/bin/unimap",
 
         "echo 'Installing wafw00f'",
-        "cd /tmp && git clone https://github.com/EnableSecurity/wafw00f && cd wafw00f && sudo python3 setup.py install",
+        "sudo python3 -m pip install --upgrade pip setuptools wheel",
+        "sudo python3 -m pip install git+https://github.com/EnableSecurity/wafw00f.git"
 
         "echo 'Installing waybackurls'",
         "/bin/su -l op -c '/usr/local/go/bin/go install github.com/tomnomnom/waybackurls@latest'",
