@@ -168,8 +168,8 @@
         "git clone https://github.com/blechschmidt/massdns.git /tmp/massdns; cd /tmp/massdns; make -s; sudo mv bin/massdns /usr/bin/massdns",
 
         "echo 'Installing nmap'",
-	"sudo apt-get -qy --no-install-recommends install alien",
-	"/bin/su -l op -c 'wget https://nmap.org/dist/nmap-7.94-1.x86_64.rpm -O /home/op/recon/nmap.rpm && cd /home/op/recon/ && sudo alien ./nmap.rpm && sudo dpkg -i ./nmap*.deb'",
+      	"sudo apt-get -qy --no-install-recommends install alien",
+	      "/bin/su -l op -c 'wget https://nmap.org/dist/nmap-7.94-1.x86_64.rpm -O /home/op/recon/nmap.rpm && cd /home/op/recon/ && sudo alien ./nmap.rpm && sudo dpkg -i ./nmap*.deb'",
 
         "echo 'Installing nuclei'",
         "/bin/su -l op -c 'GO111MODULE=on /usr/local/go/bin/go install github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest && /home/op/go/bin/nuclei'",
@@ -200,9 +200,10 @@
 
         "echo 'Installing trufflehog'",
         "/bin/su -l op -c 'docker image build - < /home/op/lists/axiom-dockerfiles/trufflehog/Dockerfile -t axiom/trufflehog'",
-
+        
         "echo 'Installing wafw00f'",
-        "cd /tmp && git clone https://github.com/EnableSecurity/wafw00f && cd wafw00f && sudo python3 setup.py install",
+        "sudo python3 -m pip install --upgrade pip setuptools wheel",
+        "sudo python3 -m pip install git+https://github.com/EnableSecurity/wafw00f.git",
 
         "echo 'Removing unneeded Docker images'",
         "/bin/su -l op -c 'docker image prune -f'",
